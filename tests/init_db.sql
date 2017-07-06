@@ -1,5 +1,5 @@
 CREATE TABLE users (
-    id SERIAL,
+    id BIGSERIAL,
     login CHAR(64) UNIQUE NOT NULL,
     password CHAR(64) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

@@ -3,6 +3,9 @@ sudo: required #is required to use docker service in travis
 services:
   - docker # required, but travis uses older version of docker :(
 
+install:
+  - echo "install nothing!"
+
 env:
   - DOCKER_COMPOSE_VERSION=1.8.1
 
