@@ -1,0 +1,27 @@
+version: '2'
+services:
+
+  postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_DB=example
+      - POSTGRES_USER=example
+      - POSTGRES_PASSWORD=example
+    volumes:
+      - ./tests/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+
+  test:
+    image: kamynina/pgtap
+    volumes:
+      - ./tests:/t
+
+  coverage:
+    image: kamynina/pgpiggly
+    volumes:
+      - ./result:/var/piggly/result
+
+  deploy_api:
+    image: postgres:9.6
+    volumes:
+      - ./deploy.sh:/deploy.sh
+      - ./src/api:/api

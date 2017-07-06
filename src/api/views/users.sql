@@ -1,0 +1,1 @@
+CREATE VIEW users AS SELECT id, login, created_at FROM users;
