@@ -16,7 +16,8 @@ docker-compose run --rm deploy_api bash /deploy.sh -h postgres -d example -u exa
 docker-compose run coverage -c trace -h postgres -u example -d example -w example
 
 # run tests
-docker-compose run --rm test -h postgres -u example -d example -w example -i /t/api/_init.sql 2> result/trace.txt
+# @TODO filter stdin
+docker-compose run --rm test -h postgres -u example -d example -w example -i /t/api/_init.sql > result/trace.txt
 
 # generate report
 docker-compose run coverage -c report -h postgres -u example -d example -w example
