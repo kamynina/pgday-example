@@ -4,6 +4,9 @@ $$
 DECLARE
     _id BIGINT;
 BEGIN
+    IF length(_password) < 3 THEN
+        RAISE EXCEPTION 'password is too short';
+    END IF;
     INSERT INTO public.users (login, password)
     VALUES (_login, _password)
     RETURNING id

@@ -1,7 +1,0 @@
-CREATE FUNCTION test_iterate() RETURNS SETOF TEXT
-LANGUAGE plpgsql AS
-$$
-BEGIN
-    RETURN NEXT ok(TRUE);
-END;
-$$;
